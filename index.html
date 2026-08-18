@@ -4,23 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CosmicBedrock — Оценки сезонов</title>
+<title>CosmicBedrock — Архив сезонов</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap');
 
 :root{
-    --bg:#0b0b0d;
-    --bg2:#121216;
-    --card:#17171c;
-    --card-hover:#202026;
-    --line:#292930;
+    --bg:#08090b;
+    --panel:#14151a;
+    --panel2:#191a20;
+    --line:#292a31;
     --text:#f5f5f7;
-    --muted:#92929b;
+    --muted:#92949e;
     --yellow:#ffcc00;
-    --yellow2:#ffd633;
-    --green:#3ddc84;
-    --red:#ff5d5d;
+    --yellow2:#ffe066;
+    --telegram:#229ed9;
 }
 
 *{
@@ -34,29 +32,27 @@ html{
 }
 
 body{
-    background:
-        radial-gradient(circle at 80% -10%, rgba(255,204,0,.09), transparent 25%),
-        radial-gradient(circle at 10% 10%, rgba(102,51,255,.07), transparent 28%),
-        var(--bg);
-    color:var(--text);
-    font-family:Inter,Arial,sans-serif;
     min-height:100vh;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 85% -10%,rgba(255,204,0,.11),transparent 28%),
+        radial-gradient(circle at -10% 30%,rgba(100,70,255,.08),transparent 25%),
+        var(--bg);
+    font-family:Inter,Arial,sans-serif;
 }
 
-/* HEADER */
-
-header{
-    height:72px;
+.header{
     position:sticky;
     top:0;
     z-index:100;
-    background:rgba(11,11,13,.88);
-    backdrop-filter:blur(18px);
+    height:74px;
+    background:rgba(8,9,11,.88);
+    backdrop-filter:blur(20px);
     border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .nav{
-    max-width:1400px;
+    max-width:1450px;
     height:100%;
     margin:auto;
     padding:0 28px;
@@ -66,8 +62,11 @@ header{
 }
 
 .logo{
+    color:white;
+    text-decoration:none;
     font-family:Montserrat,sans-serif;
-    font-size:24px;
+    font-size:22px;
+    line-height:1;
     font-weight:900;
     letter-spacing:-1.5px;
     white-space:nowrap;
@@ -78,24 +77,24 @@ header{
 }
 
 .logo small{
-    color:#777;
-    font-size:10px;
-    letter-spacing:2px;
     display:block;
-    margin-top:-2px;
+    margin-top:5px;
+    color:#62646d;
+    font-family:Inter,sans-serif;
+    font-size:8px;
+    letter-spacing:2px;
 }
 
 .nav-links{
     display:flex;
-    gap:22px;
-    margin-left:15px;
+    gap:23px;
 }
 
 .nav-links a{
-    color:#aaa;
+    color:#9698a2;
     text-decoration:none;
-    font-size:14px;
-    font-weight:600;
+    font-size:13px;
+    font-weight:700;
     transition:.2s;
 }
 
@@ -104,78 +103,76 @@ header{
 }
 
 .search{
+    width:330px;
     margin-left:auto;
     position:relative;
-    width:min(330px,35vw);
 }
 
 .search input{
     width:100%;
-    border:0;
-    outline:0;
-    background:#202025;
-    color:white;
-    padding:12px 42px 12px 16px;
-    border-radius:12px;
-    font-size:14px;
+    padding:12px 40px 12px 15px;
+    outline:none;
+    border:1px solid transparent;
+    border-radius:11px;
+    background:#1a1b21;
+    color:#fff;
+}
+
+.search input:focus{
+    border-color:#41424a;
 }
 
 .search::after{
     content:"⌕";
     position:absolute;
-    right:14px;
-    top:7px;
-    font-size:25px;
-    color:#888;
+    right:13px;
+    top:3px;
+    color:#777;
+    font-size:27px;
 }
 
-/* HERO */
-
 .hero{
-    max-width:1400px;
-    margin:0 auto;
-    min-height:430px;
-    padding:70px 28px 50px;
+    max-width:1450px;
+    min-height:500px;
+    margin:auto;
+    padding:85px 28px 70px;
     position:relative;
     overflow:hidden;
 }
 
-.hero::before{
+.hero::after{
     content:"";
-    position:absolute;
     width:700px;
     height:700px;
-    right:-300px;
-    top:-300px;
+    position:absolute;
+    right:-280px;
+    top:-350px;
     border-radius:50%;
-    background:radial-gradient(circle, rgba(255,204,0,.17), transparent 65%);
+    background:radial-gradient(circle,rgba(255,204,0,.16),transparent 67%);
     pointer-events:none;
 }
 
-.hero-badge{
+.badge{
     display:inline-flex;
-    align-items:center;
-    gap:8px;
     padding:8px 13px;
-    border:1px solid rgba(255,204,0,.22);
-    background:rgba(255,204,0,.08);
-    border-radius:30px;
+    border-radius:100px;
     color:var(--yellow);
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.5px;
+    background:rgba(255,204,0,.08);
+    border:1px solid rgba(255,204,0,.18);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.2px;
     text-transform:uppercase;
 }
 
 .hero h1{
+    max-width:950px;
     position:relative;
-    font-family:Montserrat,sans-serif;
-    max-width:850px;
     margin-top:22px;
-    font-size:clamp(42px,7vw,86px);
-    line-height:.96;
+    font-family:Montserrat,sans-serif;
+    font-size:clamp(50px,7vw,90px);
+    line-height:.94;
     letter-spacing:-5px;
-    font-weight:900;
 }
 
 .hero h1 span{
@@ -183,154 +180,144 @@ header{
 }
 
 .hero p{
-    color:#a5a5ae;
-    max-width:620px;
-    margin-top:24px;
+    max-width:670px;
+    margin-top:25px;
+    color:#9b9da6;
+    font-size:15px;
     line-height:1.7;
-    font-size:16px;
 }
 
 .hero-stats{
     display:flex;
     gap:45px;
-    margin-top:35px;
+    margin-top:36px;
 }
 
 .hero-stat b{
     display:block;
-    font-size:27px;
     font-family:Montserrat,sans-serif;
+    font-size:28px;
 }
 
 .hero-stat span{
-    color:#777;
-    font-size:12px;
+    color:#71737d;
+    font-size:11px;
 }
 
-.hero-buttons{
+.hero-actions{
     display:flex;
-    gap:12px;
-    margin-top:32px;
+    gap:10px;
+    margin-top:33px;
 }
 
 .btn{
+    padding:13px 18px;
     border:0;
+    border-radius:10px;
     cursor:pointer;
-    border-radius:11px;
-    padding:13px 19px;
-    font-weight:800;
-    font-size:14px;
+    font-size:12px;
+    font-weight:900;
     transition:.2s;
 }
 
-.btn-primary{
-    background:var(--yellow);
-    color:#171717;
-}
-
-.btn-primary:hover{
-    background:#ffe066;
+.btn:hover{
     transform:translateY(-2px);
 }
 
+.btn-yellow{
+    color:#151515;
+    background:var(--yellow);
+}
+
+.btn-yellow:hover{
+    background:var(--yellow2);
+}
+
 .btn-dark{
-    background:#24242a;
     color:#fff;
+    background:#24252c;
 }
-
-.btn-dark:hover{
-    background:#303037;
-}
-
-/* MAIN */
 
 main{
-    max-width:1400px;
+    max-width:1450px;
     margin:auto;
-    padding:20px 28px 80px;
+    padding:0 28px 90px;
 }
 
 .section-head{
     display:flex;
-    align-items:end;
     justify-content:space-between;
-    margin:28px 0 22px;
+    align-items:end;
     gap:20px;
+    margin:25px 0 20px;
 }
 
-.section-head h2{
+.section-title{
     font-family:Montserrat,sans-serif;
-    font-size:27px;
-    letter-spacing:-1px;
+    font-size:29px;
+    letter-spacing:-1.5px;
 }
 
-.section-head p{
-    color:#777;
-    font-size:13px;
+.section-subtitle{
     margin-top:7px;
+    color:#737580;
+    font-size:12px;
 }
 
 .filters{
     display:flex;
-    gap:8px;
+    gap:7px;
     flex-wrap:wrap;
 }
 
 .filter{
+    padding:8px 13px;
     border:1px solid var(--line);
-    background:#17171c;
-    color:#aaa;
-    padding:9px 13px;
     border-radius:9px;
+    background:#15161b;
+    color:#91939d;
     cursor:pointer;
-    font-size:12px;
-    font-weight:700;
-    transition:.2s;
+    font-size:11px;
+    font-weight:800;
 }
 
-.filter.active,
-.filter:hover{
+.filter:hover,
+.filter.active{
+    color:#161616;
     background:var(--yellow);
     border-color:var(--yellow);
-    color:#151515;
 }
-
-/* CARDS */
 
 .seasons-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
-    gap:16px;
+    grid-template-columns:repeat(auto-fill,minmax(285px,1fr));
+    gap:15px;
 }
 
 .season-card{
-    background:linear-gradient(145deg,#19191e,#121216);
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:17px;
-    padding:18px;
-    min-height:330px;
+    min-height:340px;
     display:flex;
     flex-direction:column;
-    position:relative;
-    overflow:hidden;
+    padding:20px;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:18px;
+    background:linear-gradient(145deg,#191a20,#111217);
     transition:.25s;
 }
 
 .season-card:hover{
     transform:translateY(-5px);
     border-color:rgba(255,204,0,.28);
-    background:linear-gradient(145deg,#212127,#141419);
 }
 
 .card-top{
     display:flex;
     justify-content:space-between;
-    align-items:start;
 }
 
-.season-number{
+.season-id{
     font-family:Montserrat,sans-serif;
-    font-size:35px;
+    font-size:36px;
     font-weight:900;
     letter-spacing:-2px;
 }
@@ -341,94 +328,65 @@ main{
 
 .rating{
     color:var(--yellow);
+    font-size:21px;
     font-weight:900;
-    font-size:22px;
 }
 
-.rating small{
-    color:#777;
-    font-size:11px;
-    font-weight:500;
-}
-
-.vote-count{
+.votes{
+    margin-top:3px;
+    color:#646670;
     font-size:10px;
-    color:#666;
-    margin-top:2px;
 }
 
 .card-line{
     height:1px;
-    background:var(--line);
     margin:17px 0;
+    background:var(--line);
 }
 
-.season-title{
+.season-name{
     font-size:16px;
-    font-weight:800;
-    margin-bottom:10px;
+    font-weight:900;
+    line-height:1.3;
 }
 
-.season-desc{
-    color:#9999a2;
-    font-size:13px;
-    line-height:1.55;
+.season-description{
     flex:1;
+    margin-top:10px;
+    color:#9698a2;
+    font-size:12.5px;
+    line-height:1.6;
 }
 
-.card-bottom{
-    margin-top:20px;
-}
-
-.mini-stars{
+.card-footer{
     display:flex;
-    gap:2px;
-    margin-bottom:12px;
+    gap:8px;
+    margin-top:18px;
 }
 
-.mini-stars span{
-    color:#555;
-    font-size:16px;
-    cursor:pointer;
-    transition:.15s;
-}
-
-.mini-stars span:hover,
-.mini-stars span.active{
-    color:var(--yellow);
-    transform:scale(1.12);
-}
-
-.rate-info{
-    color:#777;
-    font-size:11px;
-    margin-bottom:10px;
-    min-height:14px;
-}
-
-.rate-button{
-    width:100%;
+.card-button{
+    flex:1;
     padding:11px;
     border:0;
     border-radius:9px;
     cursor:pointer;
-    font-size:12px;
-    font-weight:800;
-    background:#29292f;
+    font-size:10px;
+    font-weight:900;
+}
+
+.details{
     color:#fff;
-    transition:.2s;
+    background:#292a31;
 }
 
-.rate-button.ready{
-    background:var(--yellow);
-    color:#151515;
+.details:hover{
+    background:#33343c;
 }
 
-.rate-button:hover{
-    filter:brightness(1.1);
+.comment-button{
+    color:var(--yellow);
+    background:rgba(255,204,0,.09);
 }
-
-/* TOP */
 
 .ranking{
     display:grid;
@@ -437,100 +395,79 @@ main{
 }
 
 .rank-card{
-    background:#16161b;
-    border:1px solid rgba(255,255,255,.06);
     padding:22px;
-    border-radius:15px;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+    background:#15161b;
 }
 
 .rank-place{
     color:var(--yellow);
-    font-size:12px;
+    font-size:11px;
     font-weight:900;
 }
 
 .rank-name{
-    font-size:19px;
+    margin-top:8px;
+    font-size:17px;
     font-weight:900;
-    margin:8px 0;
 }
 
 .rank-score{
+    margin-top:14px;
     font-family:Montserrat,sans-serif;
-    font-size:32px;
+    font-size:34px;
 }
 
 .rank-score span{
     color:var(--yellow);
 }
 
-/* TIMELINE */
-
-.timeline{
-    margin-top:18px;
-    background:#15151a;
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:18px;
-    padding:25px;
-}
-
-.timeline-item{
-    display:grid;
-    grid-template-columns:80px 1fr;
-    gap:20px;
-    padding:16px 0;
-    border-bottom:1px solid #25252b;
-}
-
-.timeline-item:last-child{
-    border:0;
-}
-
-.timeline-date{
-    color:var(--yellow);
-    font-weight:900;
-}
-
-.timeline-text{
-    color:#a1a1aa;
-    font-size:14px;
-    line-height:1.6;
-}
-
-.final{
-    margin-top:30px;
+.history-box{
+    padding:60px 25px;
+    border:1px solid rgba(255,204,0,.12);
     border-radius:22px;
-    padding:55px 30px;
     text-align:center;
     background:
-        radial-gradient(circle at center,rgba(255,204,0,.12),transparent 45%),
-        #141419;
-    border:1px solid rgba(255,204,0,.12);
+        radial-gradient(circle at center,rgba(255,204,0,.1),transparent 45%),
+        #14151a;
 }
 
-.final small{
-    color:#777;
-    text-transform:uppercase;
+.history-label{
+    color:#73747d;
+    font-size:10px;
     letter-spacing:3px;
+    text-transform:uppercase;
 }
 
-.final h2{
-    margin-top:14px;
+.history-box h2{
+    margin-top:15px;
     font-family:Montserrat,sans-serif;
-    font-size:clamp(34px,6vw,64px);
+    font-size:clamp(35px,6vw,65px);
     letter-spacing:-3px;
 }
 
-.final p{
-    color:#aaa;
-    margin-top:13px;
+.history-box p{
+    margin-top:15px;
+    color:#999ba4;
 }
 
-.final-date{
+.history-date{
+    margin-top:23px;
     color:var(--yellow);
+    font-size:21px;
     font-weight:900;
-    font-size:20px;
-    margin-top:20px;
+}
+
+.history-java{
+    margin-top:35px;
+    padding-top:25px;
+    border-top:1px solid #292a31;
+    color:#999;
+}
+
+.history-java b{
+    color:#fff;
 }
 
 /* MODAL */
@@ -538,13 +475,13 @@ main{
 .modal{
     display:none;
     position:fixed;
-    z-index:1000;
     inset:0;
-    background:rgba(0,0,0,.72);
-    backdrop-filter:blur(8px);
+    z-index:1000;
     align-items:center;
     justify-content:center;
     padding:20px;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(8px);
 }
 
 .modal.show{
@@ -552,115 +489,169 @@ main{
 }
 
 .modal-box{
-    width:min(560px,100%);
+    width:min(760px,100%);
     max-height:90vh;
-    overflow-y:auto;
-    background:#18181e;
-    border:1px solid #303038;
-    border-radius:20px;
-    padding:25px;
+    overflow:auto;
+    padding:30px;
     position:relative;
+    border:1px solid #30313a;
+    border-radius:21px;
+    background:#15161b;
     box-shadow:0 30px 100px #000;
 }
 
 .close{
+    width:35px;
+    height:35px;
     position:absolute;
-    right:16px;
+    right:14px;
     top:14px;
     border:0;
-    background:#292930;
-    color:#aaa;
-    width:34px;
-    height:34px;
     border-radius:50%;
+    background:#292a31;
+    color:#aaa;
     cursor:pointer;
-    font-size:20px;
+    font-size:21px;
 }
 
-.modal-season{
+.modal-id{
     color:var(--yellow);
+    font-size:11px;
     font-weight:900;
-    font-size:14px;
+    letter-spacing:1px;
 }
 
-.modal-box h2{
-    margin:8px 0 22px;
+.modal-title{
+    margin-top:8px;
     font-family:Montserrat,sans-serif;
-    font-size:27px;
+    font-size:31px;
+    letter-spacing:-1.5px;
 }
 
-.big-stars{
+.modal-rating{
+    margin-top:16px;
+    color:var(--yellow);
+    font-family:Montserrat,sans-serif;
+    font-size:34px;
+}
+
+.modal-rating small{
+    color:#70727c;
+    font-family:Inter,sans-serif;
+    font-size:12px;
+}
+
+.modal-desc{
+    margin-top:20px;
+    color:#a0a2aa;
+    font-size:14px;
+    line-height:1.75;
+}
+
+/* TELEGRAM */
+
+.rate-section{
+    margin-top:28px;
+    padding:18px;
+    border:1px solid rgba(34,158,217,.22);
+    border-radius:15px;
+    background:linear-gradient(
+        135deg,
+        rgba(34,158,217,.08),
+        rgba(34,158,217,.025)
+    );
+}
+
+.rate-button{
+    width:100%;
+    padding:14px 18px;
+    border:0;
+    border-radius:10px;
+    background:var(--telegram);
+    color:#fff;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.rate-button:hover{
+    background:#38aae0;
+    transform:translateY(-2px);
+}
+
+.rate-hint{
+    margin-top:9px;
+    color:#686a73;
+    text-align:center;
+    font-size:10px;
+}
+
+.comments-title{
+    margin-top:32px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:17px;
+    font-weight:900;
+}
+
+.comments-list{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+    margin-top:15px;
+}
+
+.comment{
+    padding:16px;
+    border:1px solid #25262d;
+    border-radius:13px;
+    background:#101116;
+}
+
+.comment-top{
     display:flex;
     justify-content:space-between;
-    gap:3px;
-    padding:12px 0 18px;
+    gap:15px;
 }
 
-.big-star{
-    color:#555;
-    cursor:pointer;
-    font-size:32px;
-    transition:.15s;
-}
-
-.big-star.active,
-.big-star:hover{
-    color:var(--yellow);
-    transform:scale(1.1);
-}
-
-.selected-rating{
-    text-align:center;
-    font-size:16px;
-    font-weight:800;
-    margin-bottom:20px;
-}
-
-.telegram-box{
-    background:#111116;
-    border:1px solid #292930;
-    padding:17px;
-    border-radius:13px;
-    margin-top:14px;
-}
-
-.telegram-box p{
-    color:#999;
-    font-size:13px;
-    line-height:1.55;
-}
-
-.telegram-btn{
-    display:block;
-    text-align:center;
-    text-decoration:none;
-    background:#229ED9;
-    color:white;
-    padding:13px;
-    border-radius:10px;
-    margin-top:14px;
+.comment-author{
     font-size:13px;
     font-weight:900;
 }
 
-.modal-note{
-    color:#666;
+.comment-rating{
+    color:var(--yellow);
     font-size:11px;
-    line-height:1.5;
-    margin-top:13px;
+    font-weight:900;
 }
 
-/* FOOTER */
+.comment-text{
+    margin-top:9px;
+    color:#9799a3;
+    font-size:13px;
+    line-height:1.6;
+}
 
-footer{
-    border-top:1px solid #202025;
-    padding:28px;
-    color:#666;
+.no-comments{
+    padding:22px;
+    border-radius:13px;
+    background:#101116;
+    color:#666873;
     text-align:center;
     font-size:12px;
 }
 
+footer{
+    padding:30px;
+    border-top:1px solid #1c1d23;
+    color:#555761;
+    text-align:center;
+    font-size:10px;
+}
+
 @media(max-width:750px){
+
     .nav{
         padding:0 16px;
     }
@@ -674,12 +665,8 @@ footer{
     }
 
     .hero{
-        padding:50px 18px 35px;
         min-height:auto;
-    }
-
-    main{
-        padding:15px 16px 60px;
+        padding:55px 16px 50px;
     }
 
     .hero h1{
@@ -687,29 +674,29 @@ footer{
     }
 
     .hero-stats{
-        gap:20px;
+        gap:22px;
+    }
+
+    main{
+        padding:0 16px 60px;
     }
 
     .section-head{
-        align-items:start;
         flex-direction:column;
+        align-items:start;
     }
 
     .ranking{
         grid-template-columns:1fr;
     }
 
-    .timeline-item{
-        grid-template-columns:1fr;
-        gap:5px;
+    .modal-box{
+        padding:23px 17px;
     }
 
-    .big-star{
-        font-size:24px;
-    }
-
-    .season-card{
-        min-height:290px;
+    .comment-top{
+        flex-direction:column;
+        gap:7px;
     }
 }
 </style>
@@ -717,425 +704,508 @@ footer{
 
 <body>
 
-<header>
-    <nav class="nav">
-        <div class="logo">
-            COSMIC<span>BEDROCK</span>
-            <small>SEASON RATINGS</small>
-        </div>
+<header class="header">
 
-        <div class="nav-links">
-            <a href="#seasons">Сезоны</a>
-            <a href="#ranking">Рейтинг</a>
-            <a href="#history">История</a>
-        </div>
+<nav class="nav">
 
-        <div class="search">
-            <input type="text" id="searchInput" placeholder="Поиск сезона...">
-        </div>
-    </nav>
+<a href="#" class="logo">
+COSMIC<span>BEDROCK</span>
+<small>SEASON ARCHIVE</small>
+</a>
+
+<div class="nav-links">
+<a href="#seasons">Сезоны</a>
+<a href="#ranking">Рейтинг</a>
+<a href="#history">История</a>
+</div>
+
+<div class="search">
+<input
+id="searchInput"
+type="text"
+placeholder="Поиск сезона..."
+>
+</div>
+
+</nav>
+
 </header>
 
+
 <section class="hero">
-    <div class="hero-badge">✦ Архив CosmicBedrock</div>
 
-    <h1>
-        Оцени эпоху.<br>
-        <span>Запомни сезон.</span>
-    </h1>
+<div class="badge">
+✦ АРХИВ ИСТОРИИ COSMICBEDROCK
+</div>
 
-    <p>
-        Архив сезонов CosmicBedrock. Здесь можно вспомнить легендарные события,
-        конфликты, правления, баны, базы и людей, которые создавали историю КБ.
-    </p>
+<h1>
+Каждая эпоха<br>
+<span>заслуживает оценки.</span>
+</h1>
 
-    <div class="hero-stats">
-        <div class="hero-stat">
-            <b id="seasonCount">14</b>
-            <span>сезонов</span>
-        </div>
+<p>
+Полная история CosmicBedrock — от первого средневекового
+региона до последних объединений. Сезоны, государства,
+конфликты, легендарные события и воспоминания игроков.
+</p>
 
-        <div class="hero-stat">
-            <b id="totalVotes">0</b>
-            <span>оценок</span>
-        </div>
+<div class="hero-stats">
 
-        <div class="hero-stat">
-            <b>2023</b>
-            <span>конец эпохи</span>
-        </div>
-    </div>
+<div class="hero-stat">
+<b id="seasonCount">0</b>
+<span>сезонов</span>
+</div>
 
-    <div class="hero-buttons">
-        <button class="btn btn-primary" onclick="document.getElementById('seasons').scrollIntoView()">
-            Смотреть сезоны
-        </button>
+<div class="hero-stat">
+<b id="totalVotes">0</b>
+<span>оценок</span>
+</div>
 
-        <button class="btn btn-dark" onclick="document.getElementById('ranking').scrollIntoView()">
-            Рейтинг сезонов
-        </button>
-    </div>
+<div class="hero-stat">
+<b>2023</b>
+<span>закрытие старого КБ</span>
+</div>
+
+</div>
+
+<div class="hero-actions">
+
+<button
+class="btn btn-yellow"
+onclick="goTo('seasons')"
+>
+Смотреть сезоны
+</button>
+
+<button
+class="btn btn-dark"
+onclick="goTo('ranking')"
+>
+Лучшие сезоны
+</button>
+
+</div>
+
 </section>
+
 
 <main>
 
 <section id="seasons">
-    <div class="section-head">
-        <div>
-            <h2>Все сезоны</h2>
-            <p>Выбери сезон и поставь ему оценку от 1 до 10.</p>
-        </div>
 
-        <div class="filters">
-            <button class="filter active" onclick="filterSeasons('all',this)">Все</button>
-            <button class="filter" onclick="filterSeasons('1',this)">1.X</button>
-            <button class="filter" onclick="filterSeasons('2',this)">2.X</button>
-            <button class="filter" onclick="filterSeasons('3',this)">3.X</button>
-            <button class="filter" onclick="filterSeasons('4',this)">4.X</button>
-        </div>
-    </div>
+<div class="section-head">
 
-    <div class="seasons-grid" id="seasonsGrid"></div>
+<div>
+
+<div class="section-title">
+Все сезоны
+</div>
+
+<div class="section-subtitle">
+История CosmicBedrock по эпохам
+</div>
+
+</div>
+
+<div class="filters">
+
+<button class="filter active" onclick="setFilter('all',this)">
+Все
+</button>
+
+<button class="filter" onclick="setFilter('1',this)">
+1.X
+</button>
+
+<button class="filter" onclick="setFilter('2',this)">
+2.X
+</button>
+
+<button class="filter" onclick="setFilter('3',this)">
+3.X
+</button>
+
+<button class="filter" onclick="setFilter('4',this)">
+4.X
+</button>
+
+<button class="filter" onclick="setFilter('special',this)">
+Новые
+</button>
+
+</div>
+
+</div>
+
+<div class="seasons-grid" id="seasonsGrid"></div>
+
 </section>
+
 
 <section id="ranking">
-    <div class="section-head">
-        <div>
-            <h2>Топ сезонов</h2>
-            <p>Рейтинг формируется на основе всех добавленных оценок.</p>
-        </div>
-    </div>
 
-    <div class="ranking" id="rankingGrid"></div>
+<div class="section-head">
+
+<div>
+
+<div class="section-title">
+Топ сезонов
+</div>
+
+<div class="section-subtitle">
+Рейтинг рассчитывается автоматически
+</div>
+
+</div>
+
+</div>
+
+<div class="ranking" id="rankingGrid"></div>
+
 </section>
 
+
 <section id="history">
-    <div class="section-head">
-        <div>
-            <h2>История</h2>
-            <p>Краткая хронология последних событий CosmicBedrock.</p>
-        </div>
-    </div>
 
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-date">1.X</div>
-            <div class="timeline-text">
-                Первые сезоны CosmicBedrock. Формирование мира, регионов,
-                средневековых государств и первых конфликтов.
-            </div>
-        </div>
+<div class="section-head">
 
-        <div class="timeline-item">
-            <div class="timeline-date">2.X</div>
-            <div class="timeline-text">
-                Приход новых игроков. Ламинат появляется на КБ, а старые карты
-                и идеи продолжают возвращаться в новых сезонах.
-            </div>
-        </div>
+<div>
 
-        <div class="timeline-item">
-            <div class="timeline-date">3.X</div>
-            <div class="timeline-text">
-                Эпоха Сената, крупных баз, легендарных банов, бункера Ламината,
-                конфликтов и смены власти.
-            </div>
-        </div>
+<div class="section-title">
+Конец старой эпохи
+</div>
 
-        <div class="timeline-item">
-            <div class="timeline-date">4.X</div>
-            <div class="timeline-text">
-                Ламинатопия, Столица, КБПРКОФИ, британцы, бунт Анора
-                и начало Ледоруба.
-            </div>
-        </div>
-    </div>
+<div class="section-subtitle">
+История, которая закончилась, но не забылась
+</div>
 
-    <div class="final">
-        <small>Последняя страница истории</small>
-        <h2>Конец эпохи CosmicBedrock</h2>
-        <p>
-            Все сезоны закончились, но их история, воспоминания и легенды
-            остались у тех, кто играл.
-        </p>
-        <div class="final-date">4 декабря 2023 года КБ закрылся</div>
-    </div>
+</div>
+
+</div>
+
+<div class="history-box">
+
+<div class="history-label">
+Последняя страница старого мира
+</div>
+
+<h2>
+CosmicBedrock закрылся
+</h2>
+
+<p>
+Старый КБ завершил свою историю,
+но воспоминания игроков остались.
+</p>
+
+<div class="history-date">
+4 декабря 2023 года
+</div>
+
+<div class="history-java">
+После этого начался новый этап —
+<b>переход CosmicBedrock на Java Edition.</b>
+</div>
+
+</div>
+
 </section>
 
 </main>
 
+
 <footer>
-    COSMICBEDROCK ARCHIVE © 2026 · НЕОФИЦИАЛЬНЫЙ АРХИВ СЕЗОНОВ
+COSMICBEDROCK SEASON ARCHIVE · АРХИВ ИСТОРИИ СЕРВЕРА
 </footer>
 
+
 <!-- MODAL -->
-<div class="modal" id="ratingModal">
-    <div class="modal-box">
-        <button class="close" onclick="closeModal()">×</button>
 
-        <div class="modal-season" id="modalSeason">СЕЗОН 3.3</div>
-        <h2 id="modalTitle">Оцените сезон</h2>
+<div class="modal" id="seasonModal">
 
-        <div class="big-stars" id="bigStars"></div>
+<div class="modal-box">
 
-        <div class="selected-rating" id="selectedRating">
-            Выберите оценку от 1 до 10
-        </div>
+<button class="close" onclick="closeModal()">
+×
+</button>
 
-        <div class="telegram-box">
-            <p>
-                После отправки вы перейдёте в Telegram-бота. Там можно будет
-                подтвердить сезон, оценку и добавить собственный комментарий
-                о воспоминаниях, событиях и впечатлениях от сезона.
-            </p>
+<div class="modal-id" id="modalId"></div>
 
-            <a href="#" id="telegramButton" class="telegram-btn">
-                ✈ ПРОДОЛЖИТЬ В TELEGRAM
-            </a>
-        </div>
+<div class="modal-title" id="modalTitle"></div>
 
-        <div class="modal-note">
-            Пока бот не подключён, оценка также сохраняется локально в браузере.
-            Для GitHub Pages позже можно подключить настоящий сервер/API.
-        </div>
-    </div>
+<div class="modal-rating">
+
+<span id="modalRating">—</span>
+★
+
+<small id="modalVotes"></small>
+
 </div>
+
+<div class="modal-desc" id="modalDesc"></div>
+
+
+<!-- TELEGRAM -->
+
+<div class="rate-section">
+
+<button
+class="rate-button"
+id="rateSeasonButton"
+>
+✈️ Оценить этот сезон в Telegram
+</button>
+
+<div class="rate-hint">
+Оставьте оценку и расскажите о своих воспоминаниях
+</div>
+
+</div>
+
+
+<div class="comments-title">
+Комментарии и воспоминания
+</div>
+
+<div class="comments-list" id="commentsList"></div>
+
+</div>
+
+</div>
+
 
 <script>
 
 /*
-=========================================================
-НАСТРОЙКИ TELEGRAM
-=========================================================
-
-ВПИШИ СЮДА ССЫЛКУ НА СВОЕГО БОТА.
-
-Например:
-https://t.me/CosmicBedrockRatingsBot
-
-Потом бот сможет получать:
-?start=season_3_3_rating_8
-
-То есть бот узнает, что пользователь оценивал сезон 3.3 на 8.
+==========================================================
+COSMICBEDROCK — СЕЗОНЫ
+==========================================================
 */
 
-const TELEGRAM_BOT = "https://t.me/ТВОЙ_БОТ";
-
-
 const seasons = [
-    {
-        id:"1.1",
-        title:"Начало CosmicBedrock",
-        desc:"Самый первый сезон КБ. Фактически мир был разделён на два региона: средневековый и современный.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"1.2",
-        title:"Первое средневековье",
-        desc:"Сезон с общим средневековым стилем. Даню в самом начале назначили главой, но позже его свергли.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"1.3",
-        title:"Грибной остров",
-        desc:"Сезон на грибном острове. Месяц копали гору и рыбачили.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"1.4",
-        title:"Тадеуш и первое появление Анора",
-        desc:"Тадеуш был главой несколько недель, после чего его свергли. Затем главой снова стал Даня. Первое появление Анора.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"1.5",
-        title:"Рыба и Дед",
-        desc:"Загадочный сезон. Из известных событий — пришли Рыба и Дед. Остальное история пока скрывает.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"2.1",
-        title:"Приход Ламината",
-        desc:"Сезон, на котором в истории CosmicBedrock появился Ламинат.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"2.2",
-        title:"Возвращение карты",
-        desc:"Сезон проходил на карте сезона 1.2. Главой был Зевс.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"3.1",
-        title:"Космикбебра",
-        desc:"Легендарный и отдельно запомнившийся сезон: космикбебра.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"3.2",
-        title:"Средневековье возвращается",
-        desc:"Снова средневековый сезон. Даня снова глава, а Ламинат живёт на грибном острове.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"3.3",
-        title:"Эпоха Сената",
-        desc:"Сезон с базами и созданием Сената. Даня живёт на горе, Зевс строит ферму терраформинга, Ламинат создаёт бункер. Бан Краски на 7 месяцев и бан Зевса на 365 лет. Позже Сенат расформирован, а Тимкей становится главой.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"3.4",
-        title:"Правило №13",
-        desc:"Трейлер сезона, подзалупыши, Китай и конфликт правила №13. Бан Ламината на 4 месяца, который на самом деле продлился неделю.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"3.5",
-        title:"Тайный сезон",
-        desc:"Тайный сезон CosmicBedrock, где произошёл легендарный конфликт с собакой.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"4.1",
-        title:"Ламинатопия",
-        desc:"Ламинатопия, Столица и КБПРКОФИ. Также Антегрия, Столица, СШЛБ и АСКБ.",
-        rating:0,
-        votes:0
-    },
-    {
-        id:"4.2",
-        title:"Британцы и Ледоруб",
-        desc:"Британцы, бунт Анора против долгов и начало Ледоруба.",
-        rating:0,
-        votes:0
-    }
+
+{
+id:"1.1",
+group:"1",
+title:"Рождение CosmicBedrock",
+desc:"Самый первый сезон КБ. Было фактическое деление мира на два региона: средневековый и современный. Именно здесь началась история CosmicBedrock."
+},
+
+{
+id:"1.2",
+group:"1",
+title:"Средневековое правление",
+desc:"Сезон с общим средневековым стилем. В самом начале Даню назначили главой, однако позже его свергли."
+},
+
+{
+id:"1.3",
+group:"1",
+title:"Грибной остров",
+desc:"Сезон на грибном острове. Целый месяц игроки копали гору и рыбачили."
+},
+
+{
+id:"1.4",
+group:"1",
+title:"Падение Тадеуша",
+desc:"Тадеуш был главой несколько недель, после чего его свергли. Главой снова стал Даня. Именно здесь впервые появился Анор."
+},
+
+{
+id:"1.5",
+group:"1",
+title:"Забытый сезон",
+desc:"Один из самых загадочных сезонов КБ. Что именно происходило — практически никто уже не помнит. Из известных событий — приход Рыбы и Деда."
+},
+
+{
+id:"2.1",
+group:"2",
+title:"Разлом мира",
+desc:"Сезон, на котором пришёл Ламинат. Появились базы. Ламинат нашёл осла Анора, который находился на горе. Впервые улетел на 20 тысяч координат, после чего Тимкей впервые пригрозил ему баном. Также прошёл ивент с Разломом мира."
+},
+
+{
+id:"2.2",
+group:"2",
+title:"Возвращение карты 1.2",
+desc:"Сезон на карте сезона 1.2. Главой был Зевс."
+},
+
+{
+id:"3.1",
+group:"3",
+title:"Космикбебра",
+desc:"Первая полноценная система регионов. Первое появление Ламинатопии, Столицы и ЛягушкаБурга. Тимоха и Ваня играли по 48 часов. Прошёл ивент, спизженный с Майнщита. В Ламинатопии проводились прятки."
+},
+
+{
+id:"3.2",
+group:"3",
+title:"Матрица и Средневековье",
+desc:"Снова средневековый сезон. Даня снова становится главой. Ламинат живёт на грибном острове. Анору по блату дают остров. Анор и Ламинат выкапывают первый чанк. Тимкей и Ламинат проводят первый аукцион. Ламинат находит добычу порталов, после чего появляются Матрица и дюп. Даня запрещает Зевсу строить огромный дом, а затем сам его строит. Гриф спавна Багусом. Появление Трубадеда. Первое и последнее появление Рыбаков. Первый потоп Столицы. Бан Краски на 7 месяцев."
+},
+
+{
+id:"3.3",
+group:"3",
+title:"Эпоха Сената",
+desc:"Сезон с базами. Оган построил свастику на спавне. Создание Сената. Даня живёт на горе, Зевс строит ферму терраформинга, появляется бункер Ламината. Краска получает бан за X-Ray, Зевс — бан на 365 лет. После этого Сенат расформирован, а Тимкей становится главой."
+},
+
+{
+id:"3.4",
+group:"3",
+title:"Правило №13",
+desc:"Трейлер сезона, Подзалупыши и Китай. Конфликт вокруг правила №13. Ламинат получает бан на 4 месяца, который на самом деле продлился неделю. Взрыв квартиры Ламината. Первое появление Тимикеи."
+},
+
+{
+id:"3.5",
+group:"3",
+title:"Тайный сезон",
+desc:"Тайный сезон, о котором почти ничего не известно. Главным событием был конфликт с собакой. Играл только один Тимкей."
+},
+
+{
+id:"4.1",
+group:"4",
+title:"Эпоха государств",
+desc:"Ламинатопия, Столица и КБПРКОФИ. Также существовали Антегрия, Столица, СШЛБ и АСКБ."
+},
+
+{
+id:"4.2",
+group:"4",
+title:"Британцы и Ледоруб",
+desc:"Британцы, бунт Анора против долгов и начало Ледоруба. Ламинат становится президентом. Появляется Гадалка и камеры. Анор уходит с сервера на два месяца."
+},
+
+{
+id:"JAVA",
+group:"special",
+title:"Переход на Java",
+desc:"После закрытия старой эпохи CosmicBedrock переходит на Java Edition."
+},
+
+{
+id:"LAST",
+group:"special",
+title:"Снова регионы",
+desc:"Реинкарнация СШЛБ — теперь КШЛБ, Столица, Антегрия и Антилутопия. Тимкей с Даней рвут друг другу жопу. Ванёк и Анор играют раз в полгода. Захват сервера 7-классниками. Первое появление ТимофейПорно. Великое объединение ТимофейПорно и Ваньки в АРЧ. Великий заход Герыча. Великое траханье Лаффру АРЧем. Тимофей и Ванька уходят с сервера на четыре месяца из-за объединения всего сервера против АРЧ. Неожиданный заход ViperR на КБ. 9mice и kaiangel захватывают власть в АРЧ. Тимоха получает бан на месяц."
+}
+
 ];
 
-let selectedSeason = null;
-let selectedRating = 0;
+
+/*
+==========================================================
+⭐ ОЦЕНКИ И КОММЕНТАРИИ
+
+ДОБАВЛЯЙ НОВЫЕ ОТЗЫВЫ СЮДА.
+
+rating = от 1 до 10
+season = номер сезона
+author = имя человека
+text = его комментарий
+==========================================================
+*/
+
+const comments = [
+
+{
+    season:"3.3",
+    author:"Ламинат",
+    rating:10,
+    text:"Один из самых легендарных сезонов. Сенат, бункер и огромное количество событий."
+},
+
+{
+    season:"3.2",
+    author:"Анор",
+    rating:10,
+    text:"Очень много воспоминаний. Грибной остров, первый чанк и всё остальное происходящее."
+},
+
+{
+    season:"2.1",
+    author:"Тимкей",
+    rating:9,
+    text:"Именно здесь началась новая эпоха. Пришёл Ламинат, появились базы и случился Разлом мира."
+},
+
+{
+    season:"4.2",
+    author:"Ламинат",
+    rating:9,
+    text:"Британцы, президентство, камеры и начало Ледоруба. Очень насыщенный сезон."
+}
+
+];
+
+
+/*
+==========================================================
+🤖 TELEGRAM-БОТ
+
+ВАЖНО:
+ЗАМЕНИ CosmicBedrockBot НА USERNAME СВОЕГО БОТА.
+
+Например:
+
+const TELEGRAM_BOT = "cosmicbedrock_rating_bot";
+
+Без @.
+==========================================================
+*/
+
+const TELEGRAM_BOT = "CosmicBedrockBot";
+
+
 let currentFilter = "all";
 
 
-function getData(){
-    return JSON.parse(localStorage.getItem("cosmicBedrockRatings") || "{}");
-}
+function getStats(id){
 
+    const list =
+        comments.filter(
+            c => c.season === id
+        );
 
-function saveData(data){
-    localStorage.setItem("cosmicBedrockRatings", JSON.stringify(data));
-}
-
-
-function getSeasonStats(id){
-    const data = getData();
-    const ratings = data[id] || [];
-
-    if(!ratings.length){
+    if(!list.length){
         return {
-            rating:0,
-            votes:0
+            average:0,
+            count:0
         };
     }
 
-    const sum = ratings.reduce((a,b)=>a+b,0);
+    const total =
+        list.reduce(
+            (sum,c)=>sum + c.rating,
+            0
+        );
 
     return {
-        rating:sum / ratings.length,
-        votes:ratings.length
+        average:total / list.length,
+        count:list.length
     };
 }
 
 
-function renderSeasons(){
+function plural(n){
 
-    const grid = document.getElementById("seasonsGrid");
-    grid.innerHTML = "";
-
-    let filtered = seasons.filter(season=>{
-        if(currentFilter === "all") return true;
-        return season.id.startsWith(currentFilter + ".");
-    });
-
-    filtered.forEach(season=>{
-
-        const stats = getSeasonStats(season.id);
-        const ratingText = stats.votes
-            ? stats.rating.toFixed(1)
-            : "—";
-
-        const card = document.createElement("div");
-        card.className = "season-card";
-        card.dataset.season = season.id;
-
-        card.innerHTML = `
-            <div class="card-top">
-                <div>
-                    <div class="season-number">${season.id}</div>
-                </div>
-
-                <div class="rating-box">
-                    <div class="rating">
-                        ${ratingText} <small>★</small>
-                    </div>
-                    <div class="vote-count">
-                        ${stats.votes} ${pluralVotes(stats.votes)}
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-line"></div>
-
-            <div class="season-title">${season.title}</div>
-            <div class="season-desc">${season.desc}</div>
-
-            <div class="card-bottom">
-
-                <div class="mini-stars">
-                    ${[1,2,3,4,5,6,7,8,9,10].map(n=>`
-                        <span onclick="quickRate('${season.id}',${n})"
-                              title="${n}/10">★</span>
-                    `).join("")}
-                </div>
-
-                <div class="rate-info">
-                    Нажмите на звезду, чтобы оценить
-                </div>
-
-                <button class="rate-button"
-                        onclick="openModal('${season.id}')">
-                    Оценить и оставить отзыв
-                </button>
-            </div>
-        `;
-
-        grid.appendChild(card);
-    });
-
-    updateTotals();
-    renderRanking();
-}
-
-
-function pluralVotes(n){
-
-    if(n % 10 === 1 && n % 100 !== 11){
+    if(
+        n % 10 === 1 &&
+        n % 100 !== 11
+    ){
         return "оценка";
     }
 
-    if([2,3,4].includes(n % 10) &&
-       ![12,13,14].includes(n % 100)){
+    if(
+        [2,3,4].includes(n%10) &&
+        ![12,13,14].includes(n%100)
+    ){
         return "оценки";
     }
 
@@ -1143,185 +1213,372 @@ function pluralVotes(n){
 }
 
 
-function quickRate(id,rating){
+function renderSeasons(){
 
-    selectedSeason = seasons.find(s=>s.id === id);
-    selectedRating = rating;
+    const grid =
+        document.getElementById(
+            "seasonsGrid"
+        );
 
-    openModal(id,rating);
+    let list =
+        seasons.filter(
+            s =>
+                currentFilter === "all" ||
+                s.group === currentFilter
+        );
+
+    grid.innerHTML = list.map(season=>{
+
+        const stats =
+            getStats(season.id);
+
+        const rating =
+            stats.count
+            ? stats.average.toFixed(1)
+            : "—";
+
+        return `
+
+        <article class="season-card">
+
+            <div class="card-top">
+
+                <div class="season-id">
+                    ${season.id}
+                </div>
+
+                <div class="rating-box">
+
+                    <div class="rating">
+                        ${rating} ★
+                    </div>
+
+                    <div class="votes">
+                        ${stats.count}
+                        ${plural(stats.count)}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-line"></div>
+
+            <div class="season-name">
+                ${season.title}
+            </div>
+
+            <div class="season-description">
+                ${shortText(season.desc,270)}
+            </div>
+
+            <div class="card-footer">
+
+                <button
+                    class="card-button details"
+                    onclick="openSeason('${season.id}')"
+                >
+                    Подробнее
+                </button>
+
+                <button
+                    class="card-button comment-button"
+                    onclick="openSeason('${season.id}')"
+                >
+                    💬 ${stats.count}
+                </button>
+
+            </div>
+
+        </article>
+
+        `;
+
+    }).join("");
+
+    renderRanking();
+
+    document.getElementById(
+        "seasonCount"
+    ).textContent = seasons.length;
+
+    document.getElementById(
+        "totalVotes"
+    ).textContent = comments.length;
 }
 
 
-function openModal(id,rating=0){
+function shortText(text,length){
 
-    selectedSeason = seasons.find(s=>s.id === id);
-
-    if(rating){
-        selectedRating = rating;
-    }else{
-        selectedRating = 0;
-    }
-
-    document.getElementById("modalSeason").textContent =
-        "СЕЗОН " + selectedSeason.id;
-
-    document.getElementById("modalTitle").textContent =
-        selectedSeason.title;
-
-    document.getElementById("ratingModal").classList.add("show");
-
-    renderBigStars();
+    return text.length > length
+        ? text.slice(0,length).trim()+"..."
+        : text;
 }
 
 
-function closeModal(){
-    document.getElementById("ratingModal").classList.remove("show");
-}
+function openSeason(id){
+
+    const season =
+        seasons.find(
+            s => s.id === id
+        );
+
+    const stats =
+        getStats(id);
+
+    document.getElementById(
+        "modalId"
+    ).textContent =
+        "СЕЗОН / ЭПОХА " + season.id;
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        season.title;
+
+    document.getElementById(
+        "modalRating"
+    ).textContent =
+        stats.count
+        ? stats.average.toFixed(1)
+        : "—";
+
+    document.getElementById(
+        "modalVotes"
+    ).textContent =
+        stats.count
+        ? " · " +
+          stats.count +
+          " " +
+          plural(stats.count)
+        : " · оценок пока нет";
+
+    document.getElementById(
+        "modalDesc"
+    ).textContent =
+        season.desc;
 
 
-function renderBigStars(){
+    /*
+    ==========================================
+    ОТКРЫТИЕ TELEGRAM-БОТА
+    ==========================================
+    */
 
-    const box = document.getElementById("bigStars");
+    document.getElementById(
+        "rateSeasonButton"
+    ).onclick = function(){
 
-    box.innerHTML = "";
+        if(
+            !TELEGRAM_BOT ||
+            TELEGRAM_BOT === "https://t.me/predlojjkaCB_bot"
+        ){
 
-    for(let i=1;i<=10;i++){
+            alert(
+                "Сначала укажи username своего Telegram-бота в коде сайта."
+            );
 
-        const star = document.createElement("span");
+            return;
+        }
 
-        star.className =
-            "big-star " + (i <= selectedRating ? "active" : "");
 
-        star.textContent = "★";
+        /*
+        Точка вместо подчёркивания сохраняется
+        в параметре Telegram.
 
-        star.onclick = ()=>{
-            selectedRating = i;
-            renderBigStars();
-        };
+        Например:
 
-        box.appendChild(star);
-    }
+        season_3.3
 
-    document.getElementById("selectedRating").textContent =
-        selectedRating
-            ? `Ваша оценка: ${selectedRating}/10`
-            : "Выберите оценку от 1 до 10";
+        Бот сможет получить этот параметр
+        через /start.
+        */
 
-    const telegram = document.getElementById("telegramButton");
+        const startParameter =
+            "season_" +
+            season.id.replace(
+                /[^a-zA-Z0-9_.-]/g,
+                "_"
+            );
 
-    if(selectedRating){
 
-        telegram.style.opacity = "1";
-        telegram.style.pointerEvents = "auto";
-
-        telegram.href =
+        const telegramURL =
+            "https://t.me/predlojjkaCB_bot" +
             TELEGRAM_BOT +
-            "?start=season_" +
-            selectedSeason.id.replace(".","_") +
-            "_rating_" +
-            selectedRating;
+            "?start=" +
+            encodeURIComponent(
+                startParameter
+            );
 
-        telegram.onclick = function(){
 
-            saveRating(selectedSeason.id,selectedRating);
+        window.open(
+            telegramURL,
+            "_blank"
+        );
 
-            setTimeout(()=>{
-                closeModal();
-                renderSeasons();
-            },200);
-        };
+    };
 
-    }else{
 
-        telegram.style.opacity = ".4";
-        telegram.style.pointerEvents = "none";
-        telegram.href = "#";
-    }
+    renderComments(id);
+
+    document
+        .getElementById("seasonModal")
+        .classList.add("show");
 }
 
 
-function saveRating(id,rating){
+function renderComments(id){
 
-    const data = getData();
+    const box =
+        document.getElementById(
+            "commentsList"
+        );
 
-    if(!data[id]){
-        data[id] = [];
+    const list =
+        comments
+        .filter(
+            c=>c.season === id
+        )
+        .slice()
+        .reverse();
+
+    if(!list.length){
+
+        box.innerHTML = `
+            <div class="no-comments">
+                Пока никто не оставил воспоминание
+                об этом сезоне.
+            </div>
+        `;
+
+        return;
     }
 
-    data[id].push(rating);
+    box.innerHTML =
+        list.map(comment=>`
 
-    saveData(data);
-}
+        <div class="comment">
 
+            <div class="comment-top">
 
-function updateTotals(){
+                <div class="comment-author">
+                    ${escapeHTML(comment.author)}
+                </div>
 
-    const data = getData();
+                <div class="comment-rating">
 
-    let total = 0;
+                    ${"★".repeat(comment.rating)}
+                    ${"☆".repeat(10-comment.rating)}
 
-    Object.values(data).forEach(arr=>{
-        total += arr.length;
-    });
+                    ${comment.rating}/10
 
-    document.getElementById("totalVotes").textContent = total;
-    document.getElementById("seasonCount").textContent = seasons.length;
+                </div>
+
+            </div>
+
+            <div class="comment-text">
+                ${escapeHTML(comment.text)}
+            </div>
+
+        </div>
+
+        `).join("");
 }
 
 
 function renderRanking(){
 
-    const rankingGrid = document.getElementById("rankingGrid");
+    const grid =
+        document.getElementById(
+            "rankingGrid"
+        );
 
-    const ranked = seasons
+    const ranked =
+        seasons
         .map(season=>({
-            ...season,
-            stats:getSeasonStats(season.id)
-        }))
-        .sort((a,b)=>{
-            if(b.stats.rating !== a.stats.rating){
-                return b.stats.rating-a.stats.rating;
-            }
 
-            return b.stats.votes-a.stats.votes;
-        })
+            season:season,
+
+            stats:getStats(
+                season.id
+            )
+
+        }))
+        .filter(
+            x => x.stats.count > 0
+        )
+        .sort(
+            (a,b)=>
+                b.stats.average -
+                a.stats.average
+        )
         .slice(0,3);
 
-    rankingGrid.innerHTML = "";
 
-    const places = ["🥇 #1 место","🥈 #2 место","🥉 #3 место"];
+    if(!ranked.length){
 
-    ranked.forEach((season,index)=>{
-
-        rankingGrid.innerHTML += `
-            <div class="rank-card">
-                <div class="rank-place">${places[index]}</div>
+        grid.innerHTML = `
+            <div
+                class="rank-card"
+                style="grid-column:1/-1"
+            >
                 <div class="rank-name">
-                    ${season.id} — ${season.title}
-                </div>
-                <div class="rank-score">
-                    ${season.stats.votes
-                        ? season.stats.rating.toFixed(1)
-                        : "—"}
-                    <span>★</span>
-                </div>
-                <div class="vote-count">
-                    ${season.stats.votes}
-                    ${pluralVotes(season.stats.votes)}
+                    Рейтинг пока пуст
                 </div>
             </div>
         `;
-    });
+
+        return;
+    }
+
+
+    const medals = [
+        "🥇 #1 место",
+        "🥈 #2 место",
+        "🥉 #3 место"
+    ];
+
+
+    grid.innerHTML =
+        ranked.map((item,index)=>`
+
+        <div class="rank-card">
+
+            <div class="rank-place">
+                ${medals[index]}
+            </div>
+
+            <div class="rank-name">
+                ${item.season.id}
+                —
+                ${item.season.title}
+            </div>
+
+            <div class="rank-score">
+                ${item.stats.average.toFixed(1)}
+                <span>★</span>
+            </div>
+
+            <div class="votes">
+                ${item.stats.count}
+                ${plural(item.stats.count)}
+            </div>
+
+        </div>
+
+        `).join("");
 }
 
 
-function filterSeasons(filter,button){
+function setFilter(value,button){
 
-    currentFilter = filter;
+    currentFilter = value;
 
-    document.querySelectorAll(".filter").forEach(btn=>{
-        btn.classList.remove("active");
-    });
+    document
+    .querySelectorAll(".filter")
+    .forEach(
+        b=>b.classList.remove("active")
+    );
 
     button.classList.add("active");
 
@@ -1329,36 +1586,87 @@ function filterSeasons(filter,button){
 }
 
 
-document.getElementById("searchInput").addEventListener("input",function(){
+function goTo(id){
 
-    const query = this.value.toLowerCase().trim();
+    document
+    .getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+}
 
-    document.querySelectorAll(".season-card").forEach(card=>{
 
-        const text = card.textContent.toLowerCase();
+function closeModal(){
 
-        card.style.display =
-            text.includes(query)
+    document
+    .getElementById("seasonModal")
+    .classList.remove("show");
+}
+
+
+function escapeHTML(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
+document
+.getElementById("searchInput")
+.addEventListener(
+    "input",
+    function(){
+
+        const q =
+            this.value
+            .toLowerCase()
+            .trim();
+
+        document
+        .querySelectorAll(".season-card")
+        .forEach(card=>{
+
+            card.style.display =
+                card.textContent
+                .toLowerCase()
+                .includes(q)
                 ? ""
                 : "none";
-    });
-});
 
+        });
 
-document.getElementById("ratingModal").addEventListener("click",function(e){
-
-    if(e.target === this){
-        closeModal();
     }
-});
+);
 
 
-document.addEventListener("keydown",function(e){
+document
+.getElementById("seasonModal")
+.addEventListener(
+    "click",
+    function(e){
 
-    if(e.key === "Escape"){
-        closeModal();
+        if(e.target === this){
+            closeModal();
+        }
+
     }
-});
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Escape"){
+            closeModal();
+        }
+
+    }
+);
 
 
 renderSeasons();
