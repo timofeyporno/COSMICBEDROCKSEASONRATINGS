@@ -41,6 +41,8 @@ body{
     font-family:Inter,Arial,sans-serif;
 }
 
+/* ================= HEADER ================= */
+
 .header{
     position:sticky;
     top:0;
@@ -130,6 +132,8 @@ body{
     color:#777;
     font-size:27px;
 }
+
+/* ================= HERO ================= */
 
 .hero{
     max-width:1450px;
@@ -238,6 +242,8 @@ body{
     background:#24252c;
 }
 
+/* ================= MAIN ================= */
+
 main{
     max-width:1450px;
     margin:auto;
@@ -287,6 +293,8 @@ main{
     background:var(--yellow);
     border-color:var(--yellow);
 }
+
+/* ================= CARDS ================= */
 
 .seasons-grid{
     display:grid;
@@ -388,6 +396,8 @@ main{
     background:rgba(255,204,0,.09);
 }
 
+/* ================= RANKING ================= */
+
 .ranking{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -422,6 +432,8 @@ main{
 .rank-score span{
     color:var(--yellow);
 }
+
+/* ================= HISTORY ================= */
 
 .history-box{
     padding:60px 25px;
@@ -470,7 +482,7 @@ main{
     color:#fff;
 }
 
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
     display:none;
@@ -514,6 +526,11 @@ main{
     font-size:21px;
 }
 
+.close:hover{
+    background:#3a3b43;
+    color:#fff;
+}
+
 .modal-id{
     color:var(--yellow);
     font-size:11px;
@@ -523,6 +540,7 @@ main{
 
 .modal-title{
     margin-top:8px;
+    padding-right:40px;
     font-family:Montserrat,sans-serif;
     font-size:31px;
     letter-spacing:-1.5px;
@@ -548,7 +566,7 @@ main{
     line-height:1.75;
 }
 
-/* TELEGRAM */
+/* ================= TELEGRAM ================= */
 
 .rate-section{
     margin-top:28px;
@@ -586,6 +604,8 @@ main{
     text-align:center;
     font-size:10px;
 }
+
+/* ================= COMMENTS ================= */
 
 .comments-title{
     margin-top:32px;
@@ -642,6 +662,8 @@ main{
     font-size:12px;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
     padding:30px;
     border-top:1px solid #1c1d23;
@@ -649,6 +671,8 @@ footer{
     text-align:center;
     font-size:10px;
 }
+
+/* ================= MOBILE ================= */
 
 @media(max-width:750px){
 
@@ -919,7 +943,7 @@ COSMICBEDROCK SEASON ARCHIVE · АРХИВ ИСТОРИИ СЕРВЕРА
 </footer>
 
 
-<!-- MODAL -->
+<!-- ================= MODAL ================= -->
 
 <div class="modal" id="seasonModal">
 
@@ -963,6 +987,8 @@ id="rateSeasonButton"
 </div>
 
 
+<!-- COMMENTS -->
+
 <div class="comments-title">
 Комментарии и воспоминания
 </div>
@@ -976,11 +1002,9 @@ id="rateSeasonButton"
 
 <script>
 
-/*
-==========================================================
-COSMICBEDROCK — СЕЗОНЫ
-==========================================================
-*/
+/* ======================================================
+   COSMICBEDROCK — СЕЗОНЫ
+====================================================== */
 
 const seasons = [
 
@@ -1099,18 +1123,16 @@ desc:"Реинкарнация СШЛБ — теперь КШЛБ, Столиц�
 ];
 
 
-/*
-==========================================================
-⭐ ОЦЕНКИ И КОММЕНТАРИИ
+/* ======================================================
+   ОЦЕНКИ И КОММЕНТАРИИ
 
-ДОБАВЛЯЙ НОВЫЕ ОТЗЫВЫ СЮДА.
+   ТЫ ДОБАВЛЯЕШЬ ОТЗЫВЫ СЮДА ВРУЧНУЮ.
 
-rating = от 1 до 10
-season = номер сезона
-author = имя человека
-text = его комментарий
-==========================================================
-*/
+   rating: 1–10
+   season: номер сезона
+   author: имя
+   text: комментарий
+====================================================== */
 
 const comments = [
 
@@ -1145,26 +1167,25 @@ const comments = [
 ];
 
 
-/*
-==========================================================
-🤖 TELEGRAM-БОТ
+/* ======================================================
+   TELEGRAM-БОТ
 
-ВАЖНО:
-ЗАМЕНИ CosmicBedrockBot НА USERNAME СВОЕГО БОТА.
+   ВАЖНО:
+   username бота указывается БЕЗ @.
 
-Например:
+   Сейчас:
+   https://t.me/predlojjkaCB_bot
+====================================================== */
 
-const TELEGRAM_BOT = "cosmicbedrock_rating_bot";
-
-Без @.
-==========================================================
-*/
-
-const TELEGRAM_BOT = "CosmicBedrockBot";
+const TELEGRAM_BOT = "predlojjkaCB_bot";
 
 
 let currentFilter = "all";
 
+
+/* ======================================================
+   СТАТИСТИКА
+====================================================== */
 
 function getStats(id){
 
@@ -1182,7 +1203,7 @@ function getStats(id){
 
     const total =
         list.reduce(
-            (sum,c)=>sum + c.rating,
+            (sum,c) => sum + c.rating,
             0
         );
 
@@ -1203,8 +1224,8 @@ function plural(n){
     }
 
     if(
-        [2,3,4].includes(n%10) &&
-        ![12,13,14].includes(n%100)
+        [2,3,4].includes(n % 10) &&
+        ![12,13,14].includes(n % 100)
     ){
         return "оценки";
     }
@@ -1213,6 +1234,10 @@ function plural(n){
 }
 
 
+/* ======================================================
+   ОТРИСОВКА СЕЗОНОВ
+====================================================== */
+
 function renderSeasons(){
 
     const grid =
@@ -1220,81 +1245,82 @@ function renderSeasons(){
             "seasonsGrid"
         );
 
-    let list =
+    const list =
         seasons.filter(
             s =>
                 currentFilter === "all" ||
                 s.group === currentFilter
         );
 
-    grid.innerHTML = list.map(season=>{
+    grid.innerHTML =
+        list.map(season => {
 
-        const stats =
-            getStats(season.id);
+            const stats =
+                getStats(season.id);
 
-        const rating =
-            stats.count
-            ? stats.average.toFixed(1)
-            : "—";
+            const rating =
+                stats.count
+                ? stats.average.toFixed(1)
+                : "—";
 
-        return `
+            return `
 
-        <article class="season-card">
+            <article class="season-card">
 
-            <div class="card-top">
+                <div class="card-top">
 
-                <div class="season-id">
-                    ${season.id}
-                </div>
-
-                <div class="rating-box">
-
-                    <div class="rating">
-                        ${rating} ★
+                    <div class="season-id">
+                        ${season.id}
                     </div>
 
-                    <div class="votes">
-                        ${stats.count}
-                        ${plural(stats.count)}
+                    <div class="rating-box">
+
+                        <div class="rating">
+                            ${rating} ★
+                        </div>
+
+                        <div class="votes">
+                            ${stats.count}
+                            ${plural(stats.count)}
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
+                <div class="card-line"></div>
 
-            <div class="card-line"></div>
+                <div class="season-name">
+                    ${season.title}
+                </div>
 
-            <div class="season-name">
-                ${season.title}
-            </div>
+                <div class="season-description">
+                    ${shortText(season.desc,270)}
+                </div>
 
-            <div class="season-description">
-                ${shortText(season.desc,270)}
-            </div>
+                <div class="card-footer">
 
-            <div class="card-footer">
+                    <button
+                        class="card-button details"
+                        onclick="openSeason('${season.id}')"
+                    >
+                        Подробнее
+                    </button>
 
-                <button
-                    class="card-button details"
-                    onclick="openSeason('${season.id}')"
-                >
-                    Подробнее
-                </button>
+                    <button
+                        class="card-button comment-button"
+                        onclick="openSeason('${season.id}')"
+                    >
+                        💬 ${stats.count}
+                    </button>
 
-                <button
-                    class="card-button comment-button"
-                    onclick="openSeason('${season.id}')"
-                >
-                    💬 ${stats.count}
-                </button>
+                </div>
 
-            </div>
+            </article>
 
-        </article>
+            `;
 
-        `;
-
-    }).join("");
+        }).join("");
 
     renderRanking();
 
@@ -1311,10 +1337,14 @@ function renderSeasons(){
 function shortText(text,length){
 
     return text.length > length
-        ? text.slice(0,length).trim()+"..."
+        ? text.slice(0,length).trim() + "..."
         : text;
 }
 
+
+/* ======================================================
+   ОТКРЫТИЕ СЕЗОНА
+====================================================== */
 
 function openSeason(id){
 
@@ -1322,6 +1352,10 @@ function openSeason(id){
         seasons.find(
             s => s.id === id
         );
+
+    if(!season){
+        return;
+    }
 
     const stats =
         getStats(id);
@@ -1360,39 +1394,26 @@ function openSeason(id){
 
 
     /*
-    ==========================================
-    ОТКРЫТИЕ TELEGRAM-БОТА
-    ==========================================
+    ======================================================
+    TELEGRAM
+
+    Например:
+
+    Сезон 3.3
+
+    станет:
+
+    https://t.me/predlojjkaCB_bot?start=season_3.3
+
+    Сезон JAVA:
+
+    https://t.me/predlojjkaCB_bot?start=season_JAVA
+    ======================================================
     */
 
     document.getElementById(
         "rateSeasonButton"
     ).onclick = function(){
-
-        if(
-            !TELEGRAM_BOT ||
-            TELEGRAM_BOT === "https://t.me/predlojjkaCB_bot"
-        ){
-
-            alert(
-                "Сначала укажи username своего Telegram-бота в коде сайта."
-            );
-
-            return;
-        }
-
-
-        /*
-        Точка вместо подчёркивания сохраняется
-        в параметре Telegram.
-
-        Например:
-
-        season_3.3
-
-        Бот сможет получить этот параметр
-        через /start.
-        */
 
         const startParameter =
             "season_" +
@@ -1401,15 +1422,13 @@ function openSeason(id){
                 "_"
             );
 
-
         const telegramURL =
-            "https://t.me/predlojjkaCB_bot" +
+            "https://t.me/" +
             TELEGRAM_BOT +
             "?start=" +
             encodeURIComponent(
                 startParameter
             );
-
 
         window.open(
             telegramURL,
@@ -1427,6 +1446,10 @@ function openSeason(id){
 }
 
 
+/* ======================================================
+   КОММЕНТАРИИ
+====================================================== */
+
 function renderComments(id){
 
     const box =
@@ -1437,7 +1460,7 @@ function renderComments(id){
     const list =
         comments
         .filter(
-            c=>c.season === id
+            c => c.season === id
         )
         .slice()
         .reverse();
@@ -1445,46 +1468,67 @@ function renderComments(id){
     if(!list.length){
 
         box.innerHTML = `
+
             <div class="no-comments">
-                Пока никто не оставил воспоминание
-                об этом сезоне.
+
+                Пока никто не оставил
+                воспоминание об этом сезоне.
+
             </div>
+
         `;
 
         return;
     }
 
     box.innerHTML =
-        list.map(comment=>`
+        list.map(comment => {
 
-        <div class="comment">
+            const rating =
+                Math.max(
+                    1,
+                    Math.min(
+                        10,
+                        Number(comment.rating)
+                    )
+                );
 
-            <div class="comment-top">
+            return `
 
-                <div class="comment-author">
-                    ${escapeHTML(comment.author)}
+            <div class="comment">
+
+                <div class="comment-top">
+
+                    <div class="comment-author">
+                        ${escapeHTML(comment.author)}
+                    </div>
+
+                    <div class="comment-rating">
+
+                        ${"★".repeat(rating)}
+                        ${"☆".repeat(10-rating)}
+
+                        ${rating}/10
+
+                    </div>
+
                 </div>
 
-                <div class="comment-rating">
-
-                    ${"★".repeat(comment.rating)}
-                    ${"☆".repeat(10-comment.rating)}
-
-                    ${comment.rating}/10
-
+                <div class="comment-text">
+                    ${escapeHTML(comment.text)}
                 </div>
 
             </div>
 
-            <div class="comment-text">
-                ${escapeHTML(comment.text)}
-            </div>
+            `;
 
-        </div>
-
-        `).join("");
+        }).join("");
 }
 
+
+/* ======================================================
+   ТОП СЕЗОНОВ
+====================================================== */
 
 function renderRanking(){
 
@@ -1495,7 +1539,7 @@ function renderRanking(){
 
     const ranked =
         seasons
-        .map(season=>({
+        .map(season => ({
 
             season:season,
 
@@ -1508,7 +1552,7 @@ function renderRanking(){
             x => x.stats.count > 0
         )
         .sort(
-            (a,b)=>
+            (a,b) =>
                 b.stats.average -
                 a.stats.average
         )
@@ -1518,14 +1562,18 @@ function renderRanking(){
     if(!ranked.length){
 
         grid.innerHTML = `
+
             <div
                 class="rank-card"
                 style="grid-column:1/-1"
             >
+
                 <div class="rank-name">
                     Рейтинг пока пуст
                 </div>
+
             </div>
+
         `;
 
         return;
@@ -1540,7 +1588,7 @@ function renderRanking(){
 
 
     grid.innerHTML =
-        ranked.map((item,index)=>`
+        ranked.map((item,index) => `
 
         <div class="rank-card">
 
@@ -1570,15 +1618,19 @@ function renderRanking(){
 }
 
 
+/* ======================================================
+   ФИЛЬТРЫ
+====================================================== */
+
 function setFilter(value,button){
 
     currentFilter = value;
 
     document
-    .querySelectorAll(".filter")
-    .forEach(
-        b=>b.classList.remove("active")
-    );
+        .querySelectorAll(".filter")
+        .forEach(
+            b => b.classList.remove("active")
+        );
 
     button.classList.add("active");
 
@@ -1586,76 +1638,101 @@ function setFilter(value,button){
 }
 
 
+/* ======================================================
+   НАВИГАЦИЯ
+====================================================== */
+
 function goTo(id){
 
     document
-    .getElementById(id)
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+        .getElementById(id)
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 }
 
+
+/* ======================================================
+   MODAL
+====================================================== */
 
 function closeModal(){
 
     document
-    .getElementById("seasonModal")
-    .classList.remove("show");
+        .getElementById("seasonModal")
+        .classList.remove("show");
 }
 
+
+/* ======================================================
+   БЕЗОПАСНЫЙ HTML
+====================================================== */
 
 function escapeHTML(text){
 
     const div =
         document.createElement("div");
 
-    div.textContent = text;
+    div.textContent =
+        String(text);
 
     return div.innerHTML;
 }
 
 
+/* ======================================================
+   ПОИСК
+====================================================== */
+
 document
-.getElementById("searchInput")
-.addEventListener(
-    "input",
-    function(){
+    .getElementById("searchInput")
+    .addEventListener(
+        "input",
+        function(){
 
-        const q =
-            this.value
-            .toLowerCase()
-            .trim();
-
-        document
-        .querySelectorAll(".season-card")
-        .forEach(card=>{
-
-            card.style.display =
-                card.textContent
+            const q =
+                this.value
                 .toLowerCase()
-                .includes(q)
-                ? ""
-                : "none";
+                .trim();
 
-        });
+            document
+                .querySelectorAll(".season-card")
+                .forEach(card => {
 
-    }
-);
+                    card.style.display =
+                        card.textContent
+                            .toLowerCase()
+                            .includes(q)
+                        ? ""
+                        : "none";
 
+                });
+
+        }
+    );
+
+
+/* ======================================================
+   ЗАКРЫТИЕ MODAL ПО ФОНУ
+====================================================== */
 
 document
-.getElementById("seasonModal")
-.addEventListener(
-    "click",
-    function(e){
+    .getElementById("seasonModal")
+    .addEventListener(
+        "click",
+        function(e){
 
-        if(e.target === this){
-            closeModal();
+            if(e.target === this){
+                closeModal();
+            }
+
         }
+    );
 
-    }
-);
 
+/* ======================================================
+   ESC
+====================================================== */
 
 document.addEventListener(
     "keydown",
@@ -1668,6 +1745,10 @@ document.addEventListener(
     }
 );
 
+
+/* ======================================================
+   ЗАПУСК
+====================================================== */
 
 renderSeasons();
 
